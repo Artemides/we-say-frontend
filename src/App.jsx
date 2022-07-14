@@ -5,6 +5,7 @@ import { Main } from './pages/Main';
 import { Messages } from './containers/Messages';
 import { MessagesPage } from './pages/MessagesPage';
 import Login from './pages/Login';
+import Signin from './pages/Signin';
 function App() {
   
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exac path='/home' element={ <Main/>}/>
         <Route exac path='/messages' element={ <MessagesPage/>}/>
         <Route exac path='/login' element={<Login/>}/>
+        <Route exac path='/signin' element={<Signin/>}/>
       </Routes>
     </Router>
   );
