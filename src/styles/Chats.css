@@ -1,0 +1,18 @@
+.chats-container{
+    min-width: 90%;
+    max-width: 100%;
+    max-height: 55vh;
+    padding: .125rem .25rem;
+    background-color: rgba(10, 6, 20, 0.53);
+    border-radius: .75rem;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.chats-container::-webkit-scrollbar{
+    display: none;
+}
+.chats-container h2{
+    color: white;
+    text-align: center;
+    margin: 0;
+}

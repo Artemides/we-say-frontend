@@ -1,0 +1,23 @@
+.message-container{
+    max-width: 70%;
+    padding: 0 .25rem;
+    border-radius: .25rem;
+    color: black;
+}
+.message-body p{
+    margin: 0;
+}
+.message-header h5{
+    font-style: italic;
+    margin: 0;
+    text-align: right;
+    color: rgb(61, 60, 60);
+}
+.my-message{
+    background-color: rgba(51, 102, 212, 0.91);
+    align-self: flex-end;
+}
+.other-message{
+    background-color: rgba(255, 255, 255, 0.92);
+    align-self: flex-start;
+}

@@ -1,0 +1,14 @@
+.contacts-container{
+    max-width: 100%;
+    padding: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: rgba(10, 6, 20, 0.53);
+    border-radius: .5rem;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+.contacts-container::-webkit-scrollbar{
+    display: none;
+}

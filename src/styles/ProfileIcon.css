@@ -2,6 +2,10 @@
     position: relative;
     border-radius: 50%;
 }
+.profile-container--tiny{
+    width: 1.5rem;
+    height: 1.5rem;
+}
 .profile-container--small{
     width: 3rem;
     height: 3rem;

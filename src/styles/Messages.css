@@ -1,0 +1,25 @@
+.messages-container{
+    position: relative;
+    background-color: rgba(10, 6, 20, 0.53);
+    border-radius: .5rem;
+    min-height: 75vh;
+    padding: .5rem;
+}
+.messages-arrow--back{
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+.messages-body{
+    height: 75vh;
+    padding: .5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: .5rem;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.messages-body::-webkit-scrollbar{
+    display: none;
+}
