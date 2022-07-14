@@ -1,7 +1,7 @@
 .message-container{
     max-width: 70%;
-    padding: 0 .25rem;
-    border-radius: .25rem;
+    padding: 0 .5rem;
+    border-radius: 1em;
     color: black;
 }
 .message-body p{
@@ -10,14 +10,17 @@
 .message-header h5{
     font-style: italic;
     margin: 0;
-    text-align: right;
+    text-align: center;
+    font-size: .6rem;
     color: rgb(61, 60, 60);
 }
 .my-message{
-    background-color: rgba(51, 102, 212, 0.91);
+    background-color: rgba(150, 235, 207, 0.75);
+    outline: .125rem solid rgba(42, 196, 149, 0.91);
     align-self: flex-end;
 }
 .other-message{
-    background-color: rgba(255, 255, 255, 0.92);
+    background-color: rgba(255, 255, 255, 0.75);
+    outline: .125rem solid rgba(160, 100, 228, 0.91);
     align-self: flex-start;
 }

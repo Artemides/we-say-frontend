@@ -1,7 +1,13 @@
+:root{
+  --family: 'Roboto', sans-serif;
+  --bg-color-container: rgba(10, 6, 20, 0.53);
+  --btn-color-success: rgb(58, 230, 150);
+  --btn-color-to:rgb(58, 118, 230);
+}
 html{
   box-sizing: border-box;
   font-size: 16px;
-  font-family: 'Alegreya Sans', sans-serif;
+  font-family: var(--family), sans-serif;
   overflow-x: hidden;
 }
 body{

@@ -18,10 +18,10 @@
     font-size: 1rem;
     resize: none;    
     border-radius: .5rem;
-    font-family: 'Alegreya Sans', sans-serif;
+    font-family: var(--family), sans-serif;
 }
 .message-sender-container textarea::placeholder{
-    font-family: 'Alegreya Sans', sans-serif;
+    font-family: var(--family), sans-serif;
 }
 .message-sender--icon{
     width: 1.5rem;

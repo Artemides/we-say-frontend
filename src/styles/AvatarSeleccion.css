@@ -1,0 +1,31 @@
+.avatar-selection--container{
+    position: relative;
+    width: 90%;
+    margin: 30vh auto;
+    background-color: var(--bg-color-container) ;
+    border-radius: .5rem;
+    text-align: center;
+    padding: 1rem 0;
+    color: white;
+}
+.avatar-selection--container h3{
+    font-family: 'Pacifico', cursive;
+    margin: 0;
+}
+.avatar-selection--body h4{
+    margin: 0;
+}
+.avatar-selection--choose{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1rem 0;
+}
+
+.avatar-selection--finalize{
+    text-decoration: none;
+    background-color: var(--btn-color-success);
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    color: white;
+}

@@ -29,7 +29,7 @@
     border-radius: 1rem;
     background-color: rgba(10, 6, 20, 0.53);
     color: white;
-    font-family: 'Alegreya Sans', sans-serif;
+    font-family: var(--family), sans-serif;
 }
 .signin-form input:focus{
     outline: .125rem solid rgb(58, 118, 230);
@@ -43,6 +43,7 @@
     border-radius: 1rem;
     text-decoration: none;
     color: white;
+    font-weight: bold;
 }
 .signin-form input[type="submit"]{
     font-weight: bold;
