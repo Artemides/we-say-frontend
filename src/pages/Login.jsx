@@ -20,7 +20,7 @@ const Login = () => {
       error:"Error al Iniciar Sesión"
     }).then((response)=>{
       console.log(auth.firstTime)
-      if(response.data?.user?.firstTime){
+      if(auth.firstTime){
         navigate("/avatar");
       }else{
         navigate('/home');

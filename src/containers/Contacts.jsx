@@ -1,12 +1,15 @@
 import React from "react";
 import "../styles/Contacts.css";
 import { Contact } from "./Contact";
-import Avatar from "../assets/images/profile.webp";
+import defaultAvatar from "../assets/images/default.png";
 export const Contacts = ({ contacts }) => {
   return (
     <section className="contacts-container">
       {contacts.map((user) => (
-        <Contact user={user} avatar={Avatar} key={user.id} />
+        <Contact 
+          user={user} 
+          avatar={user.avatar==="" ? defaultAvatar: `data:image/svg+xml;base64,${user.avatar}`} 
+          key={user._id} />
       ))}
     </section>
   );

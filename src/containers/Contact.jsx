@@ -4,7 +4,7 @@ import "../styles/Contact.css";
 export const Contact = ({ user, avatar }) => {
   return (
     <article className="contact-container">
-      <ProfileIcon image={avatar} size="small" status={user.status} />
+      <ProfileIcon image={avatar} size="small" status={'offline'} />
       <section className="contact-name">
         <p>{user.name}</p>
       </section>

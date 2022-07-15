@@ -30,7 +30,7 @@ export const Main = () => {
         .then(friends=>{
           setContacts(friends.data);
         })
-        .catch(err=>{
+        .catch(()=>{
             toast.err("Error al cargar los amigos");
         })
     })()
@@ -94,7 +94,7 @@ export const Main = () => {
       <IoMdPersonAdd className="chat-page--add" fill="white"/>
       <ProfileContainer user={user} />
       <SearchBar />
-      <Contacts contacts={chats} />
+      <Contacts contacts={contacts} />
       <Chats chats={chats} />
       <footer><small>this site is by <i>Edmundo Arias Ortiz</i></small></footer>
       <Toaster 
