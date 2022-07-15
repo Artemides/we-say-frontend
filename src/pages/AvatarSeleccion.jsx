@@ -1,23 +1,80 @@
-import React from 'react'
-import {ProfileIcon} from '../components/ProfileIcon';
-import Avatar from '../assets/images/profile.webp';
-import '../styles/AvatarSeleccion.css';
+import React, { useEffect, useState } from "react";
+import { ProfileIcon } from "../components/ProfileIcon";
+import { useNavigate } from "react-router-dom";
+import { Buffer } from "buffer";
+import "../styles/AvatarSeleccion.css";
+import axios from "axios";
+import { useAuth } from "../hooks/useAuth";
+import { Toaster,toast} from "react-hot-toast";
 const AvatarSeleccion = () => {
+  const navigate=useNavigate();
+  const auth=useAuth();
+  const api = "https://api.multiavatar.com/45678945";
+  const [avatars, setAvatars] = useState([]);
+  const [selected, setSelected] = useState(undefined);
+  const data = [];
+  useEffect(() => {
+    (async () => {
+      for (let i = 0; i < 4; i++) {
+        const image = await axios.get(
+          `${api}/${Math.round(Math.random() * 1000)}`
+        );
+        const buffer = Buffer.from(image.data);
+        data.push(buffer.toString("base64"));
+      }
+      setAvatars(data);
+    })();
+  }, []);
+
+  const handleSelectAvatar=async ()=>{
+      if(!selected){
+         toast.error("Selecciona un avatar");
+         return;
+      }
+      toast.promise(auth.handleSetAvatar(avatars[selected]),{
+        loading:"Cargando Avatar...",
+        success:"Avatar Seleccionado",
+        error:"Error al Seleccionar Avatar"
+      })
+      .then((status)=>{
+        if(status===200){
+          navigate("/home");
+        }
+      })
+      .catch(err=>{
+        toast.error(err);
+      })
+  }
   return (
     <section className="avatar-selection--container">
-        <h3>We Say</h3>
-        <article className="avatar-selection--body">
-            <h4>Avatar</h4>
-            <div className="avatar-selection--choose">
-                <ProfileIcon image={Avatar} size='small' status='offline'/>
-                <ProfileIcon image={Avatar} size='small' status='offline'/>
-                <ProfileIcon image={Avatar} size='small' status='offline'/>
-                <ProfileIcon image={Avatar} size='small' status='offline'/>
+      <h3>We Say</h3>
+      <article className="avatar-selection--body">
+        <h5>Selecciona un Avatar</h5>
+        <div className="avatar-selection--choose">
+          {avatars.map((avatar, index) => (
+            <div key={index+1} onClick={()=>setSelected(index)}  className={`${selected===index ? "avatar-selected":""}`}>
+              <ProfileIcon
+              image={`data:image/svg+xml;base64,${avatar}`}
+              size="small"
+              status="offline"
+            />
             </div>
-        </article>
-        <a className='avatar-selection--finalize' href="#">Finalize</a>
+          ))}
+        </div>
+      </article>
+      <a 
+        className="avatar-selection--finalize" 
+        href="#"
+        onClick={()=>handleSelectAvatar()}
+        >
+        Finalize
+      </a>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
     </section>
-  )
-}
+  );
+};
 
-export default AvatarSeleccion
+export default AvatarSeleccion;

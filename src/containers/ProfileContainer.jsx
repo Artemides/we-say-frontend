@@ -5,7 +5,7 @@ import '../styles/ProfileContainer.css';
 export const ProfileContainer=({user})=>{
     return(
         <section className="user-container">
-            <ProfileIcon image={Avatar} size='large' status='offline'/>
+            <ProfileIcon image={`data:image/svg+xml;base64,${user.avatar}`} size='large' status='offline'/>
             <p><small>{user.name}</small></p>
         </section>
     )

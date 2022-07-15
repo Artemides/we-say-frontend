@@ -12,7 +12,7 @@
     font-family: 'Pacifico', cursive;
     margin: 0;
 }
-.avatar-selection--body h4{
+.avatar-selection--body h5{
     margin: 0;
 }
 .avatar-selection--choose{
@@ -28,4 +28,10 @@
     border-radius: 1rem;
     font-weight: bold;
     color: white;
+}
+.avatar-selected{
+    z-index: 999;
+    outline: .125rem solid var(--btn-color-success);
+    outline-offset: 2px;
+    border-radius: 50%;
 }

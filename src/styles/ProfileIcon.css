@@ -1,6 +1,7 @@
 .profile-container{
     position: relative;
     border-radius: 50%;
+    cursor: pointer;
 }
 .profile-container--tiny{
     width: 1.5rem;
