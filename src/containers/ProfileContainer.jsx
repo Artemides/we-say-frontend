@@ -1,6 +1,5 @@
 import React from 'react';
 import { ProfileIcon } from '../components/ProfileIcon';
-import Avatar from '../assets/images/profile.webp';
 import '../styles/ProfileContainer.css';
 export const ProfileContainer=({user})=>{
     return(

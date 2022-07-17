@@ -8,6 +8,7 @@
     overflow-y: auto;
     scrollbar-width: none;
 }
+
 .chats-container::-webkit-scrollbar{
     display: none;
 }

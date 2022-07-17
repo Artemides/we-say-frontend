@@ -11,6 +11,11 @@
     border-radius: .5rem;
     color: white;
 }
+.chat-container:hover{
+    cursor: pointer;
+    background-color: var(--bg-color-container);
+    outline: 2px solid var(--btn-color-to);
+}
 .chat-content{
     width: 80%;
 }
@@ -35,4 +40,9 @@
 }
 .chat-message--time{
     font-style: italic;
+    background-color: var(--btn-color-success);
+    border-radius: 1rem;
+    padding: 0 .125rem;
+    color: black;
+    font-weight: bold;
 }
