@@ -22,12 +22,12 @@ export const Chat=({user,avatar,message,status,chatId})=>{
         >
             <ProfileIcon image={avatar} size={'small'} status={`${status}`}/>
             <section className='chat-content'>
-                <p className='chat-name'>{user.name}</p>
+                <p className='chat-name'>{user.name} - <small>{moment(message.createdAt).fromNow()}</small></p>
                 <div className="chat-message">
                     <p className='chat-message--text'>{message.text}</p>
                     <p className='chat-message--time'>
                         <small>
-                        {moment(message.createdAt).format('LT')}
+                        {moment(message.createdAt).format('l')}
                         </small>
                     </p>
                 </div>

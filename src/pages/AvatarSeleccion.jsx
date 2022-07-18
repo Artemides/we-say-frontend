@@ -27,7 +27,7 @@ const AvatarSeleccion = () => {
   }, []);
 
   const handleSelectAvatar=async ()=>{
-      if(!selected){
+      if(selected==undefined){
          toast.error("Selecciona un avatar");
          return;
       }
@@ -72,6 +72,8 @@ const AvatarSeleccion = () => {
       <Toaster
         position="top-center"
         reverseOrder={false}
+        autoClose={3000}
+        hideProgressBar={false}
       />
     </section>
   );

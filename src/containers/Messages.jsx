@@ -14,7 +14,6 @@ export const Messages = () => {
   useEffect(() => {
     lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
     (async()=>{
-      console.log(chatId)
       await axios.get(`${API}/chat-messages?chatId=${chatId}`,{
         headers:{'Authorization':`Bearer ${auth.token}`}
       })
