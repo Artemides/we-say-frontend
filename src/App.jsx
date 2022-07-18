@@ -1,5 +1,5 @@
 import "./styles/App.css";
-import React from "react";
+import React, { useRef } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Main } from "./pages/Main";
 import { Messages } from "./containers/Messages";
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route exac path="/home" element={<Main />} />
-          <Route exac path="/messages" element={<MessagesPage />} />
+          <Route exac path="/messages/:chatId" element={<MessagesPage/>} />
           <Route exac path="/avatar" element={<AvatarSeleccion />} />
         </Route>
         <Route exac path="/login" element={<Login />} />

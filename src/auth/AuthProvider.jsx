@@ -1,11 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useState,useEffect, useRef } from "react";
 import axios from "axios";
+import {io} from 'socket.io-client';
 export const AuthContext = createContext();
 const API_URL = "http://localhost:4000/api/v1";
 export const AuthProvider = ({ children }) => {
+  const socket=useRef();
   const [token, setToken] = useState(null);
   const [firstTime, setFirstTime] = useState(true);
   const [avatarSelected, setAvatarSelected] = useState(null);
+  const [currentUser, setCurrentUser] = useState(undefined);
   const login = (payload) => {
     return new Promise(async (resolve, reject) => {
       await axios
@@ -13,7 +16,10 @@ export const AuthProvider = ({ children }) => {
         .then((response) => {
           setToken(response.data.token);
           setFirstTime(response.data?.user?.once);
+          setCurrentUser(response.data.user?._id);
           localStorage.setItem("token",JSON.stringify(response.data.token));
+          socket.current=io(`http://localhost:4000`);
+          socket.current.emit("user-online",response.data.user?._id);
           resolve(response);
         })
         .catch((err) => {
@@ -57,8 +63,11 @@ export const AuthProvider = ({ children }) => {
     avatarSelected,
     setAvatarSelected,
     handleSetAvatar,
-    firstTime
+    firstTime,
+    currentUser,
+    socket
   };
+  
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );

@@ -1,14 +1,17 @@
 import React from "react";
 import { ProfileIcon } from "../components/ProfileIcon";
 import { MdArrowBack } from "react-icons/md";
-import Avatar from "../assets/images/profile.webp";
+import Avatar from "../assets/images/default.png";
 import '../styles/MessagesHeader.css'
-export const MessagesHeader = ({user}) => {
+import { Link } from "react-router-dom";
+export const MessagesHeader = ({user,avatar}) => {
   return (
     <div className="messages-header">
-      <MdArrowBack className="messages-arrow--back" fill="white" />
+      <Link to={'/home'}>
+        <MdArrowBack className="messages-arrow--back" fill="white" />
+      </Link>
       <p>{user.name}</p>
-      <ProfileIcon image={Avatar} size="small" status="offline" />
+      <ProfileIcon image={avatar} size="small" status="offline" />
     </div>
   );
 };

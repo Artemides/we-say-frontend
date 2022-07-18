@@ -1,19 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useRef } from 'react';
+import {useNavigate} from 'react-router-dom';
 import '../styles/Chat.css';
 import {ProfileIcon} from '../components/ProfileIcon';
 import moment from 'moment';
 import 'moment/locale/es';
 moment.locale('es');
-export const Chat=({user,avatar,message,status})=>{
-    useEffect(() => {
-        const when=moment(message.createdAt).format('l');
-        console.log(when);
-    }, [])
-    
+export const Chat=({user,avatar,message,status,chatId})=>{
+    const navigate=useNavigate();
+    const handleToChat=()=>{
+        navigate(`/messages/${chatId}`,{
+           state:{
+            user,
+            avatar
+           }
+        });
+    }
     return(
         <article 
             className="chat-container"
-            onClick={()=>console.log(user)}
+            onClick={()=>handleToChat()}
         >
             <ProfileIcon image={avatar} size={'small'} status={`${status}`}/>
             <section className='chat-content'>

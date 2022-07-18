@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef} from "react";
 import {toast, Toaster } from "react-hot-toast";
 import {IoMdPersonAdd} from 'react-icons/io'
 import { SearchBar } from "../components/SearchBar";
@@ -16,6 +16,7 @@ export const Main = () => {
   const [contats,setContacts]=useState([]);
   useEffect(() => {
     (async()=>{
+
         await axios.post(`${API_URL}/users/my-user`,{},{headers:{'Authorization':`Bearer ${auth.token}`}})
         .then(user=>{
             localStorage.setItem('_id',JSON.stringify(user.data._id));
@@ -47,7 +48,7 @@ export const Main = () => {
       <ProfileContainer user={user} />
       <SearchBar />
       <Contacts contacts={contats}/>
-      <Chats contacts={chats} />
+      <Chats chats={chats}/>
       <footer><small>this site is by <i>Edmundo Arias Ortiz</i></small></footer>
       <Toaster 
         position="top-right"

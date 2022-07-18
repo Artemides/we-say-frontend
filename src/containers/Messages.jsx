@@ -1,115 +1,37 @@
-import React, { useEffect, useRef } from "react";
+import axios from "axios";
+import React, { useEffect, useRef, useState, } from "react";
+import {useParams} from 'react-router-dom';
+import { useAuth } from "../hooks/useAuth";
 import "../styles/Messages.css";
 import { Message } from "./Message";
+const API="http://localhost:4000/api/v1/chats";
 export const Messages = () => {
+  const auth=useAuth();
+  const {chatId}=useParams();
   const lastMessageRef = useRef(null);
-  const messages = [
-    {
-      id: 1,
-      text: "HOla amigos, para el dia de hoy deben de iniciar su camara",
-      at: "12:24pm",
-      type: "my-message",
-    },
-    {
-      id: 2,
-      text: "HOla joven",
-      at: "12:24pm",
-      type: "other-message",
-    },
-    {
-      id: 3,
-      text: "jajaj estoy viejo",
-      at: "12:24pm",
-      type: "my-message",
-    },
-    {
-      id: 4,
-      text: "manito",
-      at: "12:24pm",
-      type: "my-message",
-    },
-    {
-      id: 5,
-      text: "habla good. F.Profe no tenemos camara, porfa solo audio no seas malo ",
-      at: "12:24pm",
-      type: "other-message",
-    },
-    {
-      id: 6,
-      text: "habla good. F.Profe no tenemos camara, porfa solo audio no seas malo ",
-      at: "12:24pm",
-      type: "other-message",
-    },
-    {
-      id: 7,
-      text: "habla good. F.Profe no tenemos camara, porfa solo audio no seas malo ",
-      at: "12:24pm",
-      type: "other-message",
-    },
-    {
-      id: 8,
-      text: "habla good. F.Profe no tenemos camara, porfa solo audio no seas malo ",
-      at: "12:24pm",
-      type: "other-message",
-    },
-    {
-      id: 9,
-      text: "habla good. F.Profe no tenemos camara, porfa solo audio no seas malo ",
-      at: "12:24pm",
-      type: "other-message",
-    },
-    {
-      id: 10,
-      text: "habla good. F.Profe no tenemos camara, porfa solo audio no seas malo ",
-      at: "12:24pm",
-      type: "other-message",
-    },
-    {
-      id: 11,
-      text: "habla good. F.Profe no tenemos camara, porfa solo audio no seas malo ",
-      at: "12:24pm",
-      type: "other-message",
-    },
-    {
-      id: 12,
-      text: "habla good. F.Profe no tenemos camara, porfa solo audio no seas malo ",
-      at: "12:24pm",
-      type: "other-message",
-    },
-    {
-      id: 13,
-      text: "habla good. F.Profe no tenemos camara, porfa solo audio no seas malo ",
-      at: "12:24pm",
-      type: "other-message",
-    },
-    {
-      id: 14,
-      text: "habla good. F.Profe no tenemos camara, porfa solo audio no seas malo ",
-      at: "12:24pm",
-      type: "my-message",
-    },
-    {
-      id: 15,
-      text: "habla good. F.Profe no tenemos camara, porfa solo audio no seas malo ",
-      at: "12:24pm",
-      type: "other-message",
-    },
-    {
-      id: 16,
-      text: "habla good. F.Profe no tenemos camara, porfa solo audio no seas malo ",
-      at: "12:24pm",
-      type: "my-message",
-    },
-  ];
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    (async()=>{
+      console.log(chatId)
+      await axios.get(`${API}/chat-messages?chatId=${chatId}`,{
+        headers:{'Authorization':`Bearer ${auth.token}`}
+      })
+        .then(response=>setMessages(response.data.messages))
+        .catch(err=>console.log(err));
+    })()
+  }, []);
+  useEffect(()=>{
+     auth.socket.current.on("comming-messages",(message)=>{
+         setMessages([...messages,message]);
+     })
+  },[messages])
   return (
     <section className="messages-container">
       <div className="messages-body">
         {messages.map((message) => (
-          <Message message={message} key={message.id} />
+          <Message message={message} key={message._id} />
         ))}
         <div ref={lastMessageRef} />
       </div>
