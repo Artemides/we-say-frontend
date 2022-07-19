@@ -1,8 +1,7 @@
 import "./styles/App.css";
-import React, { useRef } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Main } from "./pages/Main";
-import { Messages } from "./containers/Messages";
 import { MessagesPage } from "./pages/MessagesPage";
 import Login from "./pages/Login";
 import Signin from "./pages/Signin";

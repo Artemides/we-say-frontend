@@ -1,8 +1,8 @@
-import { createContext, useState,useEffect, useRef } from "react";
+import { createContext, useState, useRef } from "react";
 import axios from "axios";
 import {io} from 'socket.io-client';
 export const AuthContext = createContext();
-const API_URL = "http://localhost:4000/api/v1";
+const API_URL = "https://we-say.herokuapp.com/api/v1";
 export const AuthProvider = ({ children }) => {
   const socket=useRef();
   const [token, setToken] = useState(null);
@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
           setFirstTime(response.data?.user?.once);
           setCurrentUser(response.data.user?._id);
           localStorage.setItem("token",JSON.stringify(response.data.token));
-          socket.current=io(`http://localhost:4000`);
+          socket.current=io(`https://we-say.herokuapp.com`);
           socket.current.emit("user-online",response.data.user?._id);
           resolve(response);
         })

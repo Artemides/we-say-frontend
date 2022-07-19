@@ -5,7 +5,7 @@ import "../styles/MessageSender.css";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../hooks/useAuth";
 import axios from "axios";
-const API="http://localhost:4000/api/v1/messages";
+const API="https://we-say.herokuapp.com/api/v1/messages";
 export const MessagesSender = ({user}) => {
   const formRef = useRef(null);
   const {chatId}=useParams();

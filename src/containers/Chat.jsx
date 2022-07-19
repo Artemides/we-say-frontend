@@ -1,4 +1,4 @@
-import React, { useEffect,useRef } from 'react';
+import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import '../styles/Chat.css';
 import {ProfileIcon} from '../components/ProfileIcon';

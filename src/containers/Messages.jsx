@@ -4,7 +4,7 @@ import {useParams} from 'react-router-dom';
 import { useAuth } from "../hooks/useAuth";
 import "../styles/Messages.css";
 import { Message } from "./Message";
-const API="http://localhost:4000/api/v1/chats";
+const API="https://we-say.herokuapp.com/api/v1/chats";
 export const Messages = () => {
   const auth=useAuth();
   const {chatId}=useParams();

@@ -5,7 +5,7 @@ import { ProfileIcon } from "../components/ProfileIcon";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import "../styles/Contact.css";
-const API = "http://localhost:4000/api/v1/chats";
+const API = "https://we-say.herokuapp.com/api/v1/chats";
 export const Contact = ({ user, avatar }) => {
   const auth = useAuth();
   const navigate = useNavigate();

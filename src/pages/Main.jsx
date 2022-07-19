@@ -8,7 +8,7 @@ import { Contacts } from "../containers/Contacts";
 import { ProfileContainer } from "../containers/ProfileContainer";
 import { useAuth } from "../hooks/useAuth";
 import '../styles/Main.css';
-const API_URL=`http://localhost:4000/api/v1`;
+const API_URL=`https://we-say.herokuapp.com/api/v1`;
 export const Main = () => {
   const auth=useAuth();
   const [user, setUser] = useState({});

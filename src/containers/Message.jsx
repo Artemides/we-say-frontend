@@ -7,7 +7,7 @@ moment.locale('es');
 export const Message = ({message}) => {
   const auth=useAuth();
   return (
-    <div className={`message-container ${message.user==auth.currentUser ? 'my-message': 'other-message'}`}>
+    <div className={`message-container ${message.user===auth.currentUser ? 'my-message': 'other-message'}`}>
       <div className="message-header">
         <h5>{moment(message.createdAt).format('LT')}</h5>
       </div>
