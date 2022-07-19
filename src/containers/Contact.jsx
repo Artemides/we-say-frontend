@@ -5,7 +5,6 @@ import { ProfileIcon } from "../components/ProfileIcon";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import "../styles/Contact.css";
-const API = "https://we-say.herokuapp.com/api/v1/chats";
 export const Contact = ({ user, avatar }) => {
   const auth = useAuth();
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ export const Contact = ({ user, avatar }) => {
       otherUserId: user._id,
     };
     await axios
-      .post(`${API}`, payload, {
+      .post(`${auth.API_URL}/chats`, payload, {
         headers: { Authorization: `Bearer ${auth.token}` },
       })
       .then((response) => {

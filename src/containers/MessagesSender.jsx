@@ -5,7 +5,6 @@ import "../styles/MessageSender.css";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../hooks/useAuth";
 import axios from "axios";
-const API="https://we-say.herokuapp.com/api/v1/messages";
 export const MessagesSender = ({user}) => {
   const formRef = useRef(null);
   const {chatId}=useParams();
@@ -19,7 +18,7 @@ export const MessagesSender = ({user}) => {
       text: formData.get("text"),
       to: user._id
     }
-    await axios.post(`${API}`,payload,{headers:{'Authorization':`Bearer ${auth.token}`}})
+    await axios.post(`${auth.API_URL}/messages`,payload,{headers:{'Authorization':`Bearer ${auth.token}`}})
     .then(()=>toast.success("Mensaje enviado"))
     .catch(()=>toast.error("Error al enviar el mensaje"))
     .finally(()=>{

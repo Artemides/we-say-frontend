@@ -4,7 +4,6 @@ import {useParams} from 'react-router-dom';
 import { useAuth } from "../hooks/useAuth";
 import "../styles/Messages.css";
 import { Message } from "./Message";
-const API="https://we-say.herokuapp.com/api/v1/chats";
 export const Messages = () => {
   const auth=useAuth();
   const {chatId}=useParams();
@@ -14,7 +13,7 @@ export const Messages = () => {
   useEffect(() => {
     lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
     (async()=>{
-      await axios.get(`${API}/chat-messages?chatId=${chatId}`,{
+      await axios.get(`${auth.API_URL}/chats/chat-messages?chatId=${chatId}`,{
         headers:{'Authorization':`Bearer ${auth.token}`}
       })
         .then(response=>setMessages(response.data.messages))

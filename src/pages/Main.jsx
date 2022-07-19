@@ -8,7 +8,6 @@ import { Contacts } from "../containers/Contacts";
 import { ProfileContainer } from "../containers/ProfileContainer";
 import { useAuth } from "../hooks/useAuth";
 import '../styles/Main.css';
-const API_URL=`https://we-say.herokuapp.com/api/v1`;
 export const Main = () => {
   const auth=useAuth();
   const [user, setUser] = useState({});
@@ -17,7 +16,7 @@ export const Main = () => {
   useEffect(() => {
     (async()=>{
 
-        await axios.post(`${API_URL}/users/my-user`,{},{headers:{'Authorization':`Bearer ${auth.token}`}})
+        await axios.post(`${auth.API_URL}/users/my-user`,{},{headers:{'Authorization':`Bearer ${auth.token}`}})
         .then(user=>{
             localStorage.setItem('_id',JSON.stringify(user.data._id));
             setUser(user.data);
@@ -25,14 +24,14 @@ export const Main = () => {
         .catch(()=>{
           toast.err("Error al cargar el usuario");
         })
-        await axios.get(`${API_URL}/chats/my-chats`,{headers:{'Authorization':`Bearer ${auth.token}`}})
+        await axios.get(`${auth.API_URL}/chats/my-chats`,{headers:{'Authorization':`Bearer ${auth.token}`}})
         .then(friends=>{
           setChats(friends.data);
         })
         .catch(()=>{
             toast.err("Error al cargar los amigos");
         })
-        await axios.get(`${API_URL}/users`,{headers:{'Authorization':`Bearer ${auth.token}`}})
+        await axios.get(`${auth.API_URL}/users`,{headers:{'Authorization':`Bearer ${auth.token}`}})
         .then(users=>{
           setContacts(users.data);
         })

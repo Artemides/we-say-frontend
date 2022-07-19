@@ -2,13 +2,13 @@ import { createContext, useState, useRef } from "react";
 import axios from "axios";
 import {io} from 'socket.io-client';
 export const AuthContext = createContext();
-const API_URL = "https://we-say.herokuapp.com/api/v1";
 export const AuthProvider = ({ children }) => {
   const socket=useRef();
   const [token, setToken] = useState(null);
   const [firstTime, setFirstTime] = useState(true);
   const [avatarSelected, setAvatarSelected] = useState(null);
   const [currentUser, setCurrentUser] = useState(undefined);
+  const API_URL = "https://we-say.herokuapp.com/api/v1";
   const login = (payload) => {
     return new Promise(async (resolve, reject) => {
       await axios
@@ -66,7 +66,8 @@ export const AuthProvider = ({ children }) => {
     handleSetAvatar,
     firstTime,
     currentUser,
-    socket
+    socket,
+    API_URL
   };
   
   return (
