@@ -18,7 +18,7 @@ function App() {
           <Route exac path="/messages/:chatId" element={<MessagesPage/>} />
           <Route exac path="/avatar" element={<AvatarSeleccion />} />
         </Route>
-        <Route exac path="/login" element={<Login />} />
+        <Route exac path="/" element={<Login />} />
         <Route exac path="/signin" element={<Signin />} />
       </Routes>
     </Router>
