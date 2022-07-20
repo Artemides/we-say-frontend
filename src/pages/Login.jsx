@@ -32,31 +32,31 @@ const Login = () => {
   return (
     <section className="login-container">
       <Link className="login-to-signin" to="/signin">
-        Sign In
+        <small>Registrate</small>
       </Link>
-      <h3>Log In</h3>
+      <h3>Iniciar Sesión</h3>
       <form className="login-form" action="" ref={formLogin}>
         <input
           className="login-email"
           type="text"
           name="email"
           id=""
-          placeholder="email"
+          placeholder="correo"
         />
         <input
           className="login-password"
           type="password"
           name="password"
-          placeholder="password"
+          placeholder="contraseña"
         />
         <input
           className="login-submit"
           type="submit"
-          value={"Submit"}
+          value={"Ingresar"}
           onClick={handleSubmit}
         />
         <a className="login-forgot--password" href="#">
-          <small>Forgot password</small>
+          <small>¿Olvidaste tu contraseña?</small>
         </a>
       </form>
       {}

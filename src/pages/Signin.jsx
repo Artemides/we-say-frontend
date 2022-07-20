@@ -21,23 +21,23 @@ const Signin = () => {
         success:"Usuario registrado",
         error: "Error al regitrar"
       })
-      .then(()=>{formRef.current.reset();navigate('/login')})
+      .then(()=>{formRef.current.reset();navigate('/')})
       .catch((error)=>{
         toast.error(error.message);
       })
   }
   return (
     <div className="signin-container">
-      <Link className="signin-to-login" to="/login">
-        Log In
+      <Link className="signin-to-login" to="/">
+        <small>Iniciar Sesión</small> 
       </Link>
-      <h3>Sign In</h3>
+      <h3>Registro</h3>
       <form action="" className="signin-form" ref={formRef}>
-        <input type="text" name="username" id="" placeholder="Username" />
-        <input type="email" name="email" placeholder="Email@example.com" />
-        <input type="password" name="password" id="" placeholder="Password" />
-        <input type="password" name="password-2" id="" placeholder="Password" />
-        <input type="submit" value="Sign In" onClick={handleSubmit} />
+        <input type="text" name="username" id="" placeholder="Nombre de usuario" />
+        <input type="email" name="email" placeholder="Correo" />
+        <input type="password" name="password" id="" placeholder="Contraseña" />
+        <input type="password" name="password-2" id="" placeholder="Contraseña" />
+        <input type="submit" value="Registrar" onClick={handleSubmit} />
       </form>
       <Toaster
         position="top-center"

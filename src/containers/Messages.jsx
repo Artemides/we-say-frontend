@@ -11,7 +11,6 @@ export const Messages = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
     (async()=>{
       await axios.get(`${auth.API_URL}/chats/chat-messages?chatId=${chatId}`,{
         headers:{'Authorization':`Bearer ${auth.token}`}
@@ -24,6 +23,7 @@ export const Messages = () => {
      auth.socket.current.on("comming-messages",(message)=>{
          setMessages([...messages,message]);
      })
+     lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
   },[messages])
   return (
     <section className="messages-container">

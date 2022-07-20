@@ -22,11 +22,11 @@
 }
 .search-bar--container input{
     font-family: 'Alegreya Sans', sans-serif;
-    font-size: 1.125rem;
+    font-size: 1rem;
 }
 .search-bar--container input::placeholder{
     color: rgb(227, 238, 247);
     font-style: italic;
     font-family: 'Alegreya Sans', sans-serif;
-    font-size: 1.125rem;
+    font-size: .75rem;
 }

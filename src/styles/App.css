@@ -13,4 +13,5 @@ html{
 body{
   margin: 0 .125rem;
   background-color: rgba(35, 12, 58, 1);
+  display: grid;
 }
