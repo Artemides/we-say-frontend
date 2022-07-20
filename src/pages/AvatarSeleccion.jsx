@@ -49,7 +49,7 @@ const AvatarSeleccion = () => {
     <section className="avatar-selection--container">
       <h3>We Say</h3>
       <article className="avatar-selection--body">
-        <h5>Selecciona un Avatar</h5>
+        <h5>Ingresa una foto de perfil</h5>
         <div className="avatar-selection--choose">
           {avatars.map((avatar, index) => (
             <div key={index+1} onClick={()=>setSelected(index)}  className={`${selected===index ? "avatar-selected":""}`}>

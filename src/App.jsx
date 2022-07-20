@@ -8,6 +8,7 @@ import Signin from "./pages/Signin";
 import AvatarSeleccion from "./pages/AvatarSeleccion";
 import { PrivateRoutes } from "./routers/PrivateRouter";
 import { AuthProvider } from "./auth/AuthProvider";
+import { ProfileSelection } from "./pages/ProfileSelection";
 function App() {
   return (
     <AuthProvider>
@@ -20,6 +21,7 @@ function App() {
         </Route>
         <Route exac path="/" element={<Login />} />
         <Route exac path="/signin" element={<Signin />} />
+        <Route exac path="/profile" element={<ProfileSelection />} />
       </Routes>
     </Router>
     </AuthProvider>
