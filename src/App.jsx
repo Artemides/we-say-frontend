@@ -17,11 +17,11 @@ function App() {
         <Route element={<PrivateRoutes />}>
           <Route exac path="/home" element={<Main />} />
           <Route exac path="/messages/:chatId" element={<MessagesPage/>} />
-          <Route exac path="/avatar" element={<AvatarSeleccion />} />
+          <Route exac path="/profile" element={<ProfileSelection />} />
+          <Route exac path="/avatar" element={<AvatarSeleccion/>} />
         </Route>
         <Route exac path="/" element={<Login />} />
         <Route exac path="/signin" element={<Signin />} />
-        <Route exac path="/profile" element={<ProfileSelection />} />
       </Routes>
     </Router>
     </AuthProvider>

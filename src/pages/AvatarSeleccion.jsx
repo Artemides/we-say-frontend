@@ -6,6 +6,7 @@ import "../styles/AvatarSeleccion.css";
 import axios from "axios";
 import { useAuth } from "../hooks/useAuth";
 import { Toaster,toast} from "react-hot-toast";
+import {AiOutlineReload} from 'react-icons/ai'
 const AvatarSeleccion = () => {
   const navigate=useNavigate();
   const auth=useAuth();
@@ -15,7 +16,7 @@ const AvatarSeleccion = () => {
   const data = [];
   useEffect(() => {
     (async () => {
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 6; i++) {
         const image = await axios.get(
           `${api}/${Math.round(Math.random() * 1000)}`
         );
@@ -67,7 +68,7 @@ const AvatarSeleccion = () => {
         href="#"
         onClick={()=>handleSelectAvatar()}
         >
-        Finalize
+        Finalizar
       </a>
       <Toaster
         position="top-center"

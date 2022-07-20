@@ -30,6 +30,17 @@
     font-weight: bold;
     color: white;
 }
+.avatar-selection--icon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: .25rem;
+    background-color: rgb(228, 188, 10);
+    border-radius: 50%;
+    cursor: pointer;
+}
 .avatar-selected{
     z-index: 999;
     outline: .125rem solid var(--btn-color-success);

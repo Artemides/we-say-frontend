@@ -19,8 +19,8 @@ const Login = () => {
       success:"Inicio de Sesión Exitoso",
       error:"Error al Iniciar Sesión"
     }).then((response)=>{
-      console.log(auth.firstTime)
-      if(auth.firstTime){
+      console.log(response.data?.user?.once)
+      if(response.data?.user?.once){
         navigate("/avatar");
       }else{
         navigate('/home');
