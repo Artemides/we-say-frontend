@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
           setFirstTime(response.data?.user?.once);
           setCurrentUser(response.data.user?._id);
           localStorage.setItem("token",JSON.stringify(response.data.token));
-          socket.current=io(`https://we-say.herokuapp.com/api/v1`);
+          socket.current=io(`https://we-say.herokuapp.com`);
           resolve(response);
         })
         .catch((err) => {
