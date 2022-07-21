@@ -12,4 +12,11 @@
     font-size: 1.5rem;
     color: white;
     margin: 0;
+    font-family: 'Pacifico', sans-serif;
+}
+.messages-header--online{
+    color: rgb(58, 230, 150);
+}
+.messages-header--offline{
+    color: rgb(231, 58, 35);
 }

@@ -1,4 +1,4 @@
-import { createContext, useState, useRef } from "react";
+import { createContext, useState, useRef, useEffect } from "react";
 import axios from "axios";
 import {io} from 'socket.io-client';
 export const AuthContext = createContext();
@@ -21,7 +21,6 @@ export const AuthProvider = ({ children }) => {
           setCurrentUser(response.data.user?._id);
           localStorage.setItem("token",JSON.stringify(response.data.token));
           socket.current=io(`http://localhost:4000`);
-          socket.current.emit("user-online",response.data.user?._id);
           resolve(response);
         })
         .catch((err) => {
@@ -55,6 +54,10 @@ export const AuthProvider = ({ children }) => {
         .catch((error) => reject(error.response.data));
     });
   };
+  useEffect(()=>{
+    if(currentUser?._id){socket.current.emit('user-online',currentUser?._id);}
+  },[currentUser])
+  
   const contextValue = {
     token,
     setToken,

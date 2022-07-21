@@ -2,7 +2,8 @@ import React from "react";
 import { Chat } from "./Chat";
 import "../styles/Chats.css";
 import avatar from "../assets/images/default.png";
-export const Chats = ({ chats}) => {
+export const Chats = ({ chats,onlineUsers}) => {
+
   return (
     <section className="chats-container">
       <h2>Chat</h2>
@@ -16,8 +17,8 @@ export const Chats = ({ chats}) => {
               ? avatar
               : `data:image/svg+xml;base64,${chat.users?.avatar}`
           }
-          status={"online"}
           chatId={chat._id}
+          online={onlineUsers.includes(chat.users?._id) ? "online" : "offline"}
         />
       ))}
     </section>
