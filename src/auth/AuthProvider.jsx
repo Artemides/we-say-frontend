@@ -8,8 +8,8 @@ export const AuthProvider = ({ children }) => {
   const [firstTime, setFirstTime] = useState(true);
   const [avatarSelected, setAvatarSelected] = useState(null);
   const [currentUser, setCurrentUser] = useState(undefined);
-  //const API_URL = "https://we-say.herokuapp.com/api/v1";
-  const API_URL = "http://localhost:4000/api/v1";
+  const API_URL = "https://we-say.herokuapp.com/api/v1";
+  //const API_URL = "http://localhost:4000/api/v1";
   
   const login = (payload) => {
     return new Promise(async (resolve, reject) => {
@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
           setFirstTime(response.data?.user?.once);
           setCurrentUser(response.data.user?._id);
           localStorage.setItem("token",JSON.stringify(response.data.token));
-          socket.current=io(`http://localhost:4000`);
+          socket.current=io(`https://we-say.herokuapp.com/api/v1`);
           resolve(response);
         })
         .catch((err) => {
