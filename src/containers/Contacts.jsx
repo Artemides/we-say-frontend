@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/Contacts.css";
 import { Contact } from "./Contact";
-import defaultAvatar from "../assets/images/default.png";
 export const Contacts = ({ contacts }) => {
   return (
     <section className="contacts-container">
