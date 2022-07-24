@@ -8,8 +8,8 @@ export const AuthProvider = ({ children }) => {
   const [firstTime, setFirstTime] = useState(true);
   const [avatarSelected, setAvatarSelected] = useState(null);
   const [currentUser, setCurrentUser] = useState(undefined);
-  const API_URL = "https://we-say.herokuapp.com/api/v1";
-  //const API_URL = "http://localhost:4000/api/v1";
+  //const API_URL = "https://we-say.herokuapp.com/api/v1";
+  const API_URL = "http://localhost:4000/api/v1";
   
   const login = (payload) => {
     return new Promise(async (resolve, reject) => {
@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
           setFirstTime(response.data?.user?.once);
           setCurrentUser(response.data.user?._id);
           localStorage.setItem("token",JSON.stringify(response.data.token));
-          socket.current=io(`https://we-say.herokuapp.com`);
+          socket.current=io(`http://localhost:4000`);
           resolve(response);
         })
         .catch((err) => {
@@ -38,16 +38,16 @@ export const AuthProvider = ({ children }) => {
         .catch((error) => reject(error.response.data));
     });
   };
-  const handleSetAvatar = (imageBase64) => {
+  const handleSetAvatar = (formData) => {
     return new Promise(async (resolve, reject) => {
       const config = {
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
+          'Content-Type': 'multipart/form-data',
         },
       };
       await axios
-        .patch(`${API_URL}/users/avatar`, { avatar: imageBase64 }, config)
+        .patch(`${API_URL}/users/avatar`,formData, config)
         .then((response) => {
             resolve(response.status)
         })

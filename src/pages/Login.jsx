@@ -20,7 +20,7 @@ const Login = () => {
       error:"Error al Iniciar Sesión"
     }).then((response)=>{
       if(response.data?.user?.once){
-        navigate("/avatar");
+        navigate("/profile");
       }else{
         navigate('/home');
       }

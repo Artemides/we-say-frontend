@@ -17,9 +17,9 @@ function App() {
         <Route element={<PrivateRoutes />}>
           <Route exac path="/home" element={<Main />} />
           <Route exac path="/messages/:chatId" element={<MessagesPage/>} />
-          <Route exac path="/profile" element={<ProfileSelection />} />
           <Route exac path="/avatar" element={<AvatarSeleccion/>} />
         </Route>
+        <Route exac path="/profile" element={<ProfileSelection />} />
         <Route exac path="/" element={<Login />} />
         <Route exac path="/signin" element={<Signin />} />
       </Routes>

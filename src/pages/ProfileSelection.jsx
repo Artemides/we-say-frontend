@@ -33,8 +33,10 @@ export const ProfileSelection = () => {
       toast.error("Selecciona una foto de perfil");
       return;
     }
+    let formData=new FormData();
+    formData.append("profile-image",fileRef.current.files[0]);
     toast
-      .promise(auth.handleSetAvatar(profile), {
+      .promise(auth.handleSetAvatar(formData), {
         loading: "Cargando Perfil...",
         success: "Perfil Seleccionado",
         error: "Error al Seleccionar Perfil",
