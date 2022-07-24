@@ -8,7 +8,7 @@ export const Contacts = ({ contacts }) => {
       {contacts.map((user) => (
         <Contact 
           user={user} 
-          avatar={user.avatar==="" ? defaultAvatar: `data:image/svg+xml;base64,${user.avatar}`} 
+          avatar={user.avatar} 
           key={user._id} />
       ))}
     </section>

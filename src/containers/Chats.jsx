@@ -1,7 +1,6 @@
 import React from "react";
 import { Chat } from "./Chat";
 import "../styles/Chats.css";
-import avatar from "../assets/images/default.png";
 export const Chats = ({ chats,onlineUsers}) => {
 
   return (
@@ -13,9 +12,7 @@ export const Chats = ({ chats,onlineUsers}) => {
           user={chat.users}
           message={chat.messages}
           avatar={
-            chat.users?.avatar === ""
-              ? avatar
-              : `data:image/svg+xml;base64,${chat.users?.avatar}`
+            chat.users.avatar
           }
           chatId={chat._id}
           online={onlineUsers.includes(chat.users?._id) ? "online" : "offline"}
